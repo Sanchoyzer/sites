@@ -14,10 +14,11 @@ class SearchAreaSerializer(serializers.ModelSerializer):
 
 class HistorySerializer(serializers.ModelSerializer):
     user = serializers.CharField(source='user.t_user_id')
+    date = serializers.DateTimeField(read_only=True)
 
     class Meta:
         model = History
-        fields = ('request', 'result', 'user')
+        fields = ('request', 'result', 'user', 'date')
 
     def create(self, validated_data: Dict) -> History:
         param_user = validated_data.get('user', {})
