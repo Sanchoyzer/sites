@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+
+  django:
+    build: ./sites
+    entrypoint: ['python', 'manage.py', 'runserver', '0.0.0.0:12345']
+    volumes:
+      - ./sites/db.sqlite3:/srv/src/db.sqlite3
+    ports:
+      - '12345:12345'
+
+  t_bot:
+    build: ./t_bot
+    entrypoint: ['python', 'main.py']
+    ports:
+      - '443:443'
+    depends_on:
+      - django
