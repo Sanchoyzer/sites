@@ -4,7 +4,7 @@ idna==2.8
 pyTelegramBotAPI==3.6.7
 python-dotenv==0.10.5
 requests==2.22.0
-urllib3==1.25.8
+urllib3==1.26.5
 aiohttp==3.6.2
 asgiref==3.2.3
 async-timeout==3.0.1
